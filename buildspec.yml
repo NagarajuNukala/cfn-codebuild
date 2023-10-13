@@ -28,11 +28,11 @@ phases:
       #- aws cloudformation create-stack --stack-name sg-codebuild1 --template-body file://sec1.yml  --region us-east-1
       #- aws cloudformation create-stack --stack-name sg-codebuild2 --template-body file://sec2.yml  --region us-east-1
       #- aws cloudformation create-stack --stack-name sg-codebuild3 --template-body file://sec3.yml  --region us-east-1
-      - aws cloudformation update-stack --stack-name sg-codebuild1 --template-body file://sec1.yml --region us-east-1 || true
+      #- aws cloudformation update-stack --stack-name sg-codebuild1 --template-body file://sec1.yml --region us-east-1 || true
       #- aws cloudformation update-stack --stack-name sg-codebuild --template-body file://sec.yml --no-fail-on-empty-changeset
 
       # Update the CloudFormation stack with Python script
-      #- python skip.py 
+      - python cfn.py sg-codebuild1 
 
   post_build:
     commands:
